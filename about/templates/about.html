@@ -1,0 +1,312 @@
+
+		{% extends 'base.html' %}
+{% load static %}
+{% block pagecontant %}
+
+
+			<!-- start banner Area -->
+			<section class="banner-area relative about-banner" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								About Us				
+							</h1>	
+							<p class="text-white link-nav"><a href="{% url 'home' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'about' %}"> About Us</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start feature Area -->
+{#			<section class="feature-area pb-120">#}
+{#				<div class="container">#}
+{#					<div class="row">#}
+{#						<div class="col-lg-4">#}
+{#							<div class="single-feature">#}
+{#								<div class="title">#}
+{#									<h4>Learn Online Courses</h4>#}
+{#								</div>#}
+{#								<div class="desc-wrap">#}
+{#									<p>#}
+{#										Usage of the Internet is becoming more common due to rapid advancement#}
+{#										of technology.#}
+{#									</p>#}
+{#									<a href="#">Join Now</a>									#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-lg-4">#}
+{#							<div class="single-feature">#}
+{#								<div class="title">#}
+{#									<h4>No.1 of universities</h4>#}
+{#								</div>#}
+{#								<div class="desc-wrap">#}
+{#									<p>#}
+{#										For many of us, our very first experience of learning about the celestial bodies begins when we saw our first.#}
+{#									</p>#}
+{#									<a href="#">Join Now</a>									#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-lg-4">#}
+{#							<div class="single-feature">#}
+{#								<div class="title">#}
+{#									<h4>Huge Library</h4>#}
+{#								</div>#}
+{#								<div class="desc-wrap">#}
+{#									<p>#}
+{#										If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.#}
+{#									</p>#}
+{#									<a href="#">Join Now</a>									#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>												#}
+{#					</div>#}
+{#				</div>	#}
+{#			</section>#}
+			<!-- End feature Area -->		
+
+			<!-- Start info Area -->
+			<section class="info-area pb-120">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-lg-6 no-padding info-area-left">
+							<img class="img-fluid" src="{{ companyprofile.company_profile.url }}" alt="">
+						</div>
+						<div class="col-lg-6 info-area-right">
+							<h1>{{ companyprofile.heading }}</h1>
+							<p>{{ companyprofile.description }}</p>
+							<br>
+							<p>
+								ina
+							</p>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End info Area -->	
+
+			<!-- Start course-mission Area -->
+			<section class="course-mission-area pb-120">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Our Team</h1>
+								<p>team members .</p>
+							</div>
+						</div>
+					</div>							
+                    <div class="row">
+                        {% for member in team_members %}
+                            <div class="col-lg-4">
+							<a href="{{ image.image.url }}" class="img-gal">
+								<div class="single-imgs relative">
+									<div class="overlay overlay-bg"></div>
+									<div class="relative">
+										<img class="img-fluid" src="{{ member.profile_image.url }}" alt="">
+									</div>
+								</div>
+							</a>
+						</div>
+                        <div class="col-md-6 accordion-left">
+
+                            <!-- accordion 2 start-->
+                            <dl class="accordion">
+                                <dt>
+                                    <a href="">{{ member.first_name  }}  {{ member.last_name  }} </a>
+                                </dt>
+                                <dd>
+                                    {{member.designation }}<br>
+                                    {{ member.aims  }}
+                                </dd>
+                                <dt>
+                                    <a href="">Aims</a>
+                                </dt>
+                                <dd>
+                                    {{ member.aims  }}
+                                </dd>
+                                <dt>
+                                    <a href="">Interests</a>
+                                </dt>
+                                <dd>
+                                    {{ member.interest }}
+                                </dd>
+                                <dt>
+                                    <a href="">Others</a>
+                                </dt>
+                                <dd>
+                                    {{ member.other }}
+                                </dd>                                    
+                            </dl>
+                            <!-- accordion 2 end-->
+                        </div>
+{#                        <div class="col-md-6 video-right justify-content-center align-items-center d-flex relative">#}
+{#                        	<div class="overlay overlay-bg"></div>#}
+{#							<a class="play-btn" href=""><img class="img-fluid mx-auto" src="{{ member.profile_image.url }}" alt=""></a>#}
+{#                        </div>#}
+
+
+                        {% endfor %}
+                    </div>
+				</div>	
+			</section>
+			<!-- End course-mission Area -->
+					
+
+
+			<!-- Start review Area -->
+			<section class="review-area section-gap relative">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row">
+						<div class="active-review-carusel">
+							<div class="single-review item">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Fannie Rowe</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>
+							<div class="single-review item">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Hulda Sutton</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>
+							<div class="single-review item">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Fannie Rowe</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>
+							<div class="single-review item">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Hulda Sutton</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>	
+							<div class="single-review item">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Fannie Rowe</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>
+							<div class="single-review item">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Hulda Sutton</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>
+							<div class="single-review item">
+								<img src="img/r1.png" alt="">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Fannie Rowe</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>
+							<div class="single-review item">
+								<div class="title justify-content-start d-flex">
+									<a href="#"><h4>Hulda Sutton</h4></a>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</div>
+								<p>
+									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.
+								</p>
+							</div>																												
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End review Area -->					
+
+			<!-- Start cta-two Area -->
+{#			<section class="cta-two-area">#}
+{#				<div class="container">#}
+{#					<div class="row">#}
+{#						<div class="col-lg-8 cta-left">#}
+{#							<h1>Not Yet Satisfied with our Trend?</h1>#}
+{#						</div>#}
+{#						<div class="col-lg-4 cta-right">#}
+{#							<a class="primary-btn wh" href="#">view our blog</a>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>	#}
+{#			</section>#}
+			<!-- End cta-two Area -->						    			
+
+			<!-- start footer Area -->
+			<!-- End footer Area -->	
+
+{% endblock %}
