@@ -24,9 +24,16 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-8 left-contents">
+                            {% ifequal course_details.material_type 'image' %}
 							<div class="main-image">
 								<img class="img-fluid" src="{{ course_details.background_image.url }}" alt="">
 							</div>
+                            {% endifequal %}
+                            {% ifequal course_details.material_type 'video' %}
+                                <div class="vid">
+                                    <iframe width='100%' height="315" src="//www.youtube.com/embed/{{ course_details.url }}" allowfullscreen=""></iframe>
+                                </div>
+                            {% endifequal %}
 							<div class="jq-tab-wrapper" id="horizontalTab">
 	                            <div class="jq-tab-menu">
 	                                <div class="jq-tab-title active" data-tab="1">Objectives</div>
