@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
-
+from .models import Blogs,BlogBanner
 # from .forms import MyForm
 
 class BlogList(View):
@@ -11,8 +11,10 @@ class BlogList(View):
 
     def get(self, request, *args, **kwargs):
         # form = self.form_class(initial=self.initial)
-        # return render(request, self.template_name, {'form': form})
-        return render(request, self.template_name)
+        blogs=Blogs.objects.filter().all()
+        blogbanner=BlogBanner.objects.last()
+        return render(request, self.template_name, {'blogs': blogs,'blogbanner':blogbanner})
+        # return render(request, self.template_name)
 
     # def post(self, request, *args, **kwargs):
     #     form = self.form_class(request.POST)
@@ -28,7 +30,8 @@ class BlogDetail(View):
     # initial = {'key': 'value'}
     template_name = 'blog-single.html'
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, blog_id=None):
         # form = self.form_class(initial=self.initial)
-        # return render(request, self.template_name, {'form': form})
-        return render(request, self.template_name)
+        blog_detail=Blogs.objects.filter(id=blog_id).first()
+        return render(request, self.template_name, {'blog_detail': blog_detail})
+        # return render(request, self.template_name)
