@@ -4,6 +4,7 @@ from django.views import View
 from .models import HomeBanner
 from courses.models import Course
 from event.models import Events
+from blog.models import Blogs
 # from .forms import MyForm
 
 class Home(View):
@@ -16,7 +17,8 @@ class Home(View):
         homebanner=HomeBanner.objects.filter().last()
         courses=Course.objects.filter().all()
         events=Events.objects.filter().all()
-        return render(request, self.template_name, {'homebanner': homebanner,'courses':courses,'events':events})
+        blogs=Blogs.objects.filter().all()
+        return render(request, self.template_name, {'homebanner': homebanner,'courses':courses,'events':events,'blogs':blogs})
         # return render(request, self.template_name)
 
     # def post(self, request, *args, **kwargs):
